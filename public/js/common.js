@@ -1,4 +1,5 @@
-const URL = "http://192.168.1.165:8080/";
+//const URL = "http://192.168.1.165:8080/";
+const URL = "http://www.lujiasen.com/wechat/"; //正式线上地址
 const EXPRESS_INFORMATION = URL+"express/getExpressState";
 
 const getParams = url =>{
