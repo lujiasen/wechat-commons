@@ -1,13 +1,13 @@
 const params = getParams(window.location.href);
 $(function(){
-	  mui.showLoading("正在加载..","div");
-	getExpressInformation(params.expressNo,params.userId,params.companyCode);
+	mui.showLoading("正在加载..","div");
+	getExpressInformation(params.expressNo,params.userId,params.companyCode,params.company);
 })
-const getExpressInformation = (expressNo,userId,companyCode) => {
+const getExpressInformation = (expressNo,userId,companyCode,company) => {
 	$.ajax({
 		type:'post',
 		url:EXPRESS_INFORMATION,
-		data:{"expressNo":expressNo,"userId":userId,"companyCode":companyCode},
+		data:{"expressNo":expressNo,"userId":userId,"companyCode":companyCode,"company":company},
 		success:function(data){
 			if(data.code == "0000"){
 				if(data.State != "0"){
