@@ -1,5 +1,6 @@
 const params = getParams(window.location.href);
 $(function(){
+	  mui.showLoading("正在加载..","div");
 	getExpressInformation(params.expressNo,params.userId,params.companyCode);
 })
 const getExpressInformation = (expressNo,userId,companyCode) => {
@@ -10,6 +11,8 @@ const getExpressInformation = (expressNo,userId,companyCode) => {
 		success:function(data){
 			if(data.code == "0000"){
 				if(data.State != "0"){
+					$("#expressNo").text(expressNo);
+//					$("#company").text(companyCode);
 					console.log(data.data.Traces);
 					let list = data.data.Traces.reverse();
 					content = "";
@@ -31,6 +34,7 @@ const getExpressInformation = (expressNo,userId,companyCode) => {
 					}
 				}
 			}
+			mui.hideLoading();//隐藏后的回调函数
 		}
 	})
 }
